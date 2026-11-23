@@ -811,26 +811,25 @@ ul, ol {
   height: 100%;
   opacity: 0;
   visibility: hidden;
-  pointer-events: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 3rem 4rem;
   background: var(--slide-bg);
-  transition: opacity 0.4s ease, visibility 0.4s ease;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
   color: #ffffff;
-  z-index: 1;
 }
 
 .carousel-slide.active {
   opacity: 1;
   visibility: visible;
-  pointer-events: auto;
   z-index: 2;
 }
 
-.carousel-slide.active .slide-content {
-  animation: slideInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+.slide-content {
+  max-width: 550px;
+  z-index: 3;
+  animation: slideInLeft 0.6s ease;
 }
 
 .slide-badge {
