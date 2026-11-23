@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temu | Explore Deals, Shop Like a Billionaire</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23fb7701'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial, sans-serif' font-weight='900' font-size='20' fill='%23ffffff'>T</text></svg>">
+  <meta name="description" content="Shop Temu clone for incredible discounts on clothing, electronics, home decor, beauty and more. Free shipping on all orders.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= TOP ANNOUNCEMENT BAR ================= -->
+  <aside class="top-announcement-bar" id="topBar">
+    <div class="announcement-content">
+      <div class="announcement-slider">
+        <span class="announcement-item active">
+          <svg class="icon icon-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"/></svg>
+          <strong>FREE SHIPPING</strong> ON ALL ORDERS • Special Limited-Time Welcome Offer!
+        </span>
+        <span class="announcement-item">
+          <svg class="icon icon-shield" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"/></svg>
+          90-Day Free Returns • Price Adjustment Guarantee • 100% Secure Checkout
+        </span>
+      </div>
+      <div class="announcement-links">
+        <button class="app-download-btn" id="openAppModalBtn">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          Get Temu App
+        </button>
+        <span class="divider">|</span>
+        <div class="locale-selector">
+          <span class="flag-icon">🇺🇸</span>
+          <span>EN / USD ($)</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN HEADER ================= -->
+  <header class="main-header" id="mainHeader">
+    <div class="header-container">
+      
+      <!-- Logo -->
+      <a href="#" class="brand-logo" aria-label="Temu Home">
+        <div class="temu-logo-wrapper">
+          <div class="temu-badge-icons">
+            <span class="badge-icon icon-dress">👗</span>
+            <span class="badge-icon icon-horse">🎠</span>
+            <span class="badge-icon icon-shoe">👠</span>
+            <span class="badge-icon icon-bag">👜</span>
+          </div>
+          <span class="temu-wordmark">TEMU</span>
+        </div>
+        <span class="brand-slogan">Shop like a billionaire</span>
+      </a>
+
+      <!-- Search Section -->
+      <div class="header-search-bar" id="searchContainer">
+        <form class="search-form" id="searchForm" onsubmit="return false;">
+          <div class="search-input-wrapper">
+            <input 
+              type="text" 
+              id="searchInput" 
+              class="search-input" 
+              placeholder="Search wireless earbuds, hoodies, watches..." 
+              autocomplete="off"
+              aria-label="Search items"
+            >
+            <button type="button" class="search-clear-btn" id="searchClearBtn" aria-label="Clear search" style="display: none;">
+              &times;
+            </button>
+          </div>
+          <button type="submit" class="search-submit-btn" id="searchBtn" aria-label="Search">
+            <svg class="icon search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Search Suggestions Dropdown -->
+        <div class="search-dropdown" id="searchDropdown">
+          <div class="search-section">
+            <div class="search-section-title">
+              <span>🔥 Trending Searches</span>
+            </div>
+            <div class="trending-tags" id="trendingTags">
+              <button class="trend-tag">Wireless Earbuds</button>
+              <button class="trend-tag">Mechanical Keyboard</button>
+              <button class="trend-tag">Smart Watch</button>
+              <button class="trend-tag">Air Fryer Liner</button>
+              <button class="trend-tag">Oversized Hoodie</button>
+              <button class="trend-tag">LED Strip Lights</button>
+              <button class="trend-tag">Portable Blender</button>
+            </div>
+          </div>
+          <div class="search-section" id="recentSearchesSection" style="display: none;">
+            <div class="search-section-title">
+              <span>Recent Searches</span>
+              <button type="button" class="clear-recent-btn" id="clearRecentBtn">Clear</button>
+            </div>
+            <ul class="recent-list" id="recentList"></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header Action Controls -->
+      <nav class="header-actions" aria-label="User navigation">
+        
+        <!-- Gamification / Lucky Coupon Button -->
+        <button class="action-btn spin-wheel-trigger" id="spinWheelBtn" title="Daily Lucky Spin">
+          <span class="spin-icon">🎁</span>
+          <span class="action-label highlight-orange">Spin &amp; Win</span>
+          <span class="reward-pulse"></span>
+        </button>
+
+        <!-- Orders & Support -->
+        <a href="#orders" class="action-btn" id="ordersNavBtn">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span class="action-label">Orders</span>
+        </a>
+
+        <!-- Wishlist -->
+        <button class="action-btn" id="wishlistNavBtn" title="Wishlist">
+          <div class="icon-with-badge">
+            <svg class="icon heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span class="counter-badge" id="wishlistCount">0</span>
+          </div>
+          <span class="action-label">Wishlist</span>
+        </button>
+
+        <!-- Account / Login -->
+        <div class="user-account-wrapper" id="userMenuWrapper">
+          <button class="action-btn user-btn" id="authModalTrigger">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <div class="user-info-text">
+              <span class="action-subtext" id="userGreeting">Sign in / Register</span>
+              <span class="action-label" id="userNameLabel">Orders &amp; Account</span>
+            </div>
+          </button>
+
+          <!-- User Logged-in Dropdown -->
+          <div class="user-dropdown-menu" id="userDropdownMenu">
+            <div class="user-dropdown-header">
+              <div class="avatar-circle" id="userAvatar">U</div>
+              <div class="user-dropdown-meta">
+                <span class="dropdown-name" id="dropdownUserName">User</span>
+                <span class="dropdown-email" id="dropdownUserEmail">user@example.com</span>
+              </div>
+            </div>
+            <ul class="dropdown-nav-list">
+              <li>
+                <a href="#orders" class="dropdown-link" id="viewUserOrders">
+                  <span>📦 My Orders</span>
+                  <span class="badge-mini">2</span>
+                </a>
+              </li>
+              <li>
+                <a href="#coupons" class="dropdown-link" id="viewUserCoupons">
+                  <span>🏷️ Coupon Wallet</span>
+                  <span class="badge-mini orange-bg">-$100</span>
+                </a>
+              </li>
+              <li>
+                <a href="#addresses" class="dropdown-link">
+                  <span>📍 Shipping Addresses</span>
+                </a>
+              </li>
+              <li>
+                <a href="#settings" class="dropdown-link">
+                  <span>⚙️ Account Settings</span>
+                </a>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li>
+                <button type="button" class="dropdown-logout-btn" id="logoutBtn">
+                  <span>🚪 Sign Out</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Cart Trigger -->
+        <button class="action-btn cart-btn" id="cartDrawerTrigger" aria-label="Shopping Cart">
+          <div class="icon-with-badge">
+            <svg class="icon cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span class="counter-badge cart-badge" id="cartCount">0</span>
+          </div>
+          <span class="action-label">Cart</span>
+        </button>
+
+      </nav>
+    </div>
+
+    <!-- Category Strip Navigation -->
+    <nav class="category-nav-strip" id="categoryNav">
+      <div class="category-scroll-container">
+        <button class="cat-pill active" data-category="all">
+          <span class="cat-icon">⚡</span> All Items
+        </button>
+        <button class="cat-pill" data-category="bestsellers">
+          <span class="cat-icon">🔥</span> Best Sellers
+        </button>
+        <button class="cat-pill" data-category="lightning">
+          <span class="cat-icon">⚡</span> Lightning Deals
+        </button>
+        <button class="cat-pill" data-category="electronics">
+          <span class="cat-icon">🎧</span> Electronics
+        </button>
+        <button class="cat-pill" data-category="fashion">
+          <span class="cat-icon">👗</span> Women's Fashion
+        </button>
+        <button class="cat-pill" data-category="mens">
+          <span class="cat-icon">👕</span> Men's Clothing
+        </button>
+        <button class="cat-pill" data-category="home">
+          <span class="cat-icon">🏠</span> Home &amp; Kitchen
+        </button>
+        <button class="cat-pill" data-category="beauty">
+          <span class="cat-icon">💄</span> Beauty &amp; Health
+        </button>
+        <button class="cat-pill" data-category="toys">
+          <span class="cat-icon">🧸</span> Toys &amp; Hobbies
+        </button>
+        <button class="cat-pill" data-category="jewelry">
+          <span class="cat-icon">💍</span> Jewelry &amp; Watches
+        </button>
+        <button class="cat-pill" data-category="under10">
+          <span class="cat-icon">🏷️</span> Under $10 Deals
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="page-main-container">
+
+    <!-- HERO PROMOTION CAROUSEL -->
+    <section class="hero-carousel-section" aria-label="Promotional Banners">
+      <div class="carousel-viewport" id="heroCarousel">
+        
+        <!-- Slide 1: Big Temu Sale -->
+        <div class="carousel-slide slide-1 active" style="--slide-bg: linear-gradient(135deg, #fb5c02 0%, #ff7700 45%, #ff9500 100%);">
+          <div class="slide-content">
+            <div class="slide-badge">⚡ EXCLUSIVE WELCOME BUNDLE</div>
+            <h1 class="slide-title">UP TO <span>90% OFF</span></h1>
+            <p class="slide-subtitle">Millions of viral items at wholesale prices. Free shipping on every order.</p>
+            <div class="slide-features">
+              <span class="feature-tag">✔ 90-Day Free Returns</span>
+              <span class="feature-tag">✔ Price Adjustment</span>
+              <span class="feature-tag">✔ Carbon Neutral</span>
+            </div>
+            <div class="slide-cta-group">
+              <button class="btn btn-primary btn-large scroll-to-deals">Shop Flash Sale Now</button>
+              <button class="btn btn-glass btn-large" id="heroSpinTrigger">Claim $100 Coupon</button>
+            </div>
+          </div>
+          <div class="slide-visual">
+            <div class="floating-deal-card deal-1">
+              <span class="card-tag">-89%</span>
+              <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=260&auto=format&fit=crop&q=80" alt="Earbuds" loading="lazy">
+              <div class="card-info">
+                <span class="deal-name">Pro TWS Earbuds</span>
+                <span class="deal-price">$4.29 <del>$39.99</del></span>
+              </div>
+            </div>
+            <div class="floating-deal-card deal-2">
+              <span class="card-tag hot-tag">HOT</span>
+              <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=260&auto=format&fit=crop&q=80" alt="Smart Watch" loading="lazy">
+              <div class="card-info">
+                <span class="deal-name">Fitness Tracker HD</span>
+                <span class="deal-price">$12.48 <del>$68.00</del></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Tech & Gadget Bonanza -->
+        <div class="carousel-slide slide-2" style="--slide-bg: linear-gradient(135deg, #182848 0%, #2980b9 100%);">
+          <div class="slide-content">
+            <div class="slide-badge">🎧 TECH CLEARANCE EXTRAVAGANZA</div>
+            <h2 class="slide-title">SMART TECH FROM <span>$1.99</span></h2>
+            <p class="slide-subtitle">RGB Mechanical Keyboards, Wireless Audio, Smart Home Accessories &amp; Drones.</p>
+            <div class="slide-features">
+              <span class="feature-tag">✔ Over 200,000+ sold</span>
+              <span class="feature-tag">✔ Verified Temu Quality</span>
+            </div>
+            <div class="slide-cta-group">
+              <button class="btn btn-primary btn-large filter-tech-btn">Browse Tech Deals</button>
+            </div>
+          </div>
+          <div class="slide-visual">
+            <div class="floating-deal-card deal-tech">
+              <span class="card-tag">-75%</span>
+              <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=260&auto=format&fit=crop&q=80" alt="Mechanical Keyboard" loading="lazy">
+              <div class="card-info">
+                <span class="deal-name">RGB Gaming Keyboard</span>
+                <span class="deal-price">$18.90 <del>$79.99</del></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Fall Fashion & Home -->
+        <div class="carousel-slide slide-3" style="--slide-bg: linear-gradient(135deg, #b92b27 0%, #1565C0 100%);">
+          <div class="slide-content">
+            <div class="slide-badge">🍂 TRENDING ESSENTIALS</div>
+            <h2 class="slide-title">EVERYDAY LOWS <span>ALL UNDER $10</span></h2>
+            <p class="slide-subtitle">Cozy hoodies, kitchen storage hacks, beauty bestsellers and trendy jewelry.</p>
+            <div class="slide-cta-group">
+              <button class="btn btn-primary btn-large filter-under10-btn">Explore Under $10</button>
+            </div>
+          </div>
+          <div class="slide-visual">
+            <div class="floating-deal-card deal-fashion">
+              <span class="card-tag">-82%</span>
+              <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=260&auto=format&fit=crop&q=80" alt="Cozy Hoodie" loading="lazy">
+              <div class="card-info">
+                <span class="deal-name">Oversized Fleece Hoodie</span>
+                <span class="deal-price">$9.49 <del>$48.00</del></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Carousel Navigation Arrows & Dots -->
+      <button class="carousel-nav-arrow prev" id="heroPrevBtn" aria-label="Previous Slide">&#10094;</button>
+      <button class="carousel-nav-arrow next" id="heroNextBtn" aria-label="Next Slide">&#10095;</button>
+      <div class="carousel-indicators" id="heroIndicators">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+      </div>
+    </section>
+
+    <!-- TRUST BADGES BAR -->
+    <section class="trust-guarantees-bar">
+      <div class="trust-item">
+        <div class="trust-icon">🚚</div>
+        <div class="trust-text">
+          <strong>Free Shipping</strong>
+          <span>On all orders today</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🔄</div>
+        <div class="trust-text">
+          <strong>90-Day Returns</strong>
+          <span>Easy return window</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">💰</div>
+        <div class="trust-text">
+          <strong>Price Adjustment</strong>
+          <span>Refund if price drops</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🔒</div>
+        <div class="trust-text">
+          <strong>Security Guarantee</strong>
+          <span>Safe 256-bit SSL payments</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FLASH DEALS SECTION ================= -->
+    <section class="flash-deals-section" id="flashDealsSection">
+      <div class="section-header flash-header">
+        <div class="flash-title-group">
+          <div class="lightning-badge">
+            <svg class="icon lightning-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+            <span>Lightning Deals</span>
+          </div>
+          <div class="countdown-timer-box">
+            <span class="timer-label">Ends in:</span>
+            <div class="timer-digits" id="flashTimer">
+              <span class="digit-box" id="timerHours">05</span>
+              <span class="colon">:</span>
+              <span class="digit-box" id="timerMins">42</span>
+              <span class="colon">:</span>
+              <span class="digit-box" id="timerSecs">19</span>
+            </div>
+          </div>
+        </div>
+        <a href="#all-deals" class="view-all-link" id="viewAllDeals">View all limited offers &rarr;</a>
+      </div>
+
+      <!-- Flash Deals Horizontal Slider / Grid -->
+      <div class="flash-deals-grid" id="flashDealsGrid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+
+    <!-- ================= MAIN PRODUCT CATALOG SECTION ================= -->
+    <section class="catalog-section" id="catalogSection">
+      
+      <!-- Catalog Controls: Filter Pills & Sorting -->
+      <div class="catalog-header-bar">
+        <div class="catalog-tabs">
+          <button class="catalog-tab-btn active" data-filter="all">Recommend</button>
+          <button class="catalog-tab-btn" data-filter="bestseller">Top Sellers</button>
+          <button class="catalog-tab-btn" data-filter="under10">Under $10</button>
+          <button class="catalog-tab-btn" data-filter="new">New In</button>
+          <button class="catalog-tab-btn" data-filter="rating">5★ Rated</button>
+        </div>
+
+        <div class="catalog-sort-wrapper">
+          <label for="catalogSort">Sort by:</label>
+          <select id="catalogSort" class="catalog-sort-select">
+            <option value="featured">Featured (Temu's Pick)</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="sold">Most Sold</option>
+            <option value="rating">Customer Rating</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Active Filter Badge Notification (if searching or filtering) -->
+      <div class="active-filter-indicator" id="activeFilterBar" style="display: none;">
+        <span>Showing results for: <strong id="filterQueryText">""</strong></span>
+        <button type="button" class="clear-filter-btn" id="clearFilterBtn">Clear Filter</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Products generated by script.js with skeleton loading -->
+      </div>
+
+      <!-- Load More / Infinite Scroll Button -->
+      <div class="load-more-container" id="loadMoreContainer">
+        <button class="btn btn-outline btn-load-more" id="loadMoreBtn">
+          <span class="btn-text">Discover More Awesome Items</span>
+          <span class="spinner" style="display: none;"></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= TEMU ADVANTAGE BANNER ================= -->
+    <section class="temu-features-banner">
+      <div class="banner-highlight">
+        <div class="highlight-text">
+          <h2>Why millions love shopping on Temu</h2>
+          <p>Cutting out middlemen directly connects you with manufacturers, unlocking wholesale prices with guaranteed buyer protection.</p>
+        </div>
+        <div class="highlight-stats">
+          <div class="stat-box">
+            <span class="stat-number">250M+</span>
+            <span class="stat-desc">Satisfied Shoppers</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">10M+</span>
+            <span class="stat-desc">Curated Products</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">99.8%</span>
+            <span class="stat-desc">On-Time Delivery</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="main-footer">
+    <div class="footer-top">
+      <div class="footer-container">
+        
+        <div class="footer-col">
+          <h4 class="footer-title">Company Info</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Temu</a></li>
+            <li><a href="#">Temu's Tree Planting Program</a></li>
+            <li><a href="#">Intellectual Property Policy</a></li>
+            <li><a href="#">Press &amp; Media</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Customer Service</h4>
+          <ul class="footer-links">
+            <li><a href="#">Return and Refund Policy</a></li>
+            <li><a href="#">Purchase Protection</a></li>
+            <li><a href="#">Shipping Information</a></li>
+            <li><a href="#">Report Suspicious Activity</a></li>
+            <li><a href="#">Contact Support (24/7)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Help &amp; FAQs</h4>
+          <ul class="footer-links">
+            <li><a href="#">Track Your Order</a></li>
+            <li><a href="#">Price Adjustment Guarantee</a></li>
+            <li><a href="#">How to Order on Temu</a></li>
+            <li><a href="#">Security &amp; Privacy Center</a></li>
+            <li><a href="#">Terms of Use</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col app-col">
+          <h4 class="footer-title">Download the Temu App</h4>
+          <p class="app-subtext">Scan to get exclusive app coupons and live order tracking alerts.</p>
+          <div class="qr-code-box">
+            <div class="qr-mockup">
+              <!-- Inline QR Code SVG Mockup -->
+              <svg viewBox="0 0 100 100" width="80" height="80">
+                <rect width="100" height="100" fill="#ffffff" rx="4"/>
+                <path d="M10 10h24v24h-24z M14 14h16v16h-16z M18 18h8v8h-8z M66 10h24v24h-24z M70 14h16v16h-16z M74 18h8v8h-8z M10 66h24v24h-24z M14 70h16v16h-16z M18 74h8v8h-8z M42 10h16v8h-16z M42 26h8v8h-8z M58 18h8v8h-8z M42 42h8v8h-8z M58 34h8v16h-8z M74 42h16v8h-16z M42 58h16v8h-16z M66 58h8v8h-8z M82 58h8v16h-8z M42 74h8v16h-8z M58 82h16v8h-16z M74 74h8v8h-8z" fill="#000000"/>
+              </svg>
+            </div>
+            <div class="app-badges">
+              <span class="store-badge">🍎 App Store</span>
+              <span class="store-badge">🤖 Google Play</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Payment & Security Icons -->
+    <div class="footer-bottom">
+      <div class="footer-container">
+        <div class="payment-methods">
+          <span class="payment-icon">💳 Visa</span>
+          <span class="payment-icon">💳 Mastercard</span>
+          <span class="payment-icon">💳 Amex</span>
+          <span class="payment-icon">🅿️ PayPal</span>
+          <span class="payment-icon">🍏 Apple Pay</span>
+          <span class="payment-icon">🛍️ Klarna</span>
+          <span class="payment-icon">🔒 256-Bit SSL</span>
+        </div>
+        <div class="copyright-text">
+          &copy; 2026 Temu Clone. Created with pure HTML, CSS, and Vanilla JavaScript. All trademarks belong to their respective owners.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MOBILE BOTTOM NAVIGATION ================= -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+    <button class="mobile-nav-item active" id="mobNavHome">
+      <span class="mob-icon">🏠</span>
+      <span class="mob-label">Home</span>
+    </button>
+    <button class="mobile-nav-item" id="mobNavCategories">
+      <span class="mob-icon">🗂️</span>
+      <span class="mob-label">Categories</span>
+    </button>
+    <button class="mobile-nav-item" id="mobNavSpin">
+      <span class="mob-icon">🎁</span>
+      <span class="mob-label">Rewards</span>
+    </button>
+    <button class="mobile-nav-item" id="mobNavWishlist">
+      <span class="mob-icon">❤️</span>
+      <span class="mob-label">Wishlist</span>
+      <span class="mob-badge" id="mobWishlistCount">0</span>
+    </button>
+    <button class="mobile-nav-item" id="mobNavCart">
+      <span class="mob-icon">🛒</span>
+      <span class="mob-label">Cart</span>
+      <span class="mob-badge" id="mobCartCount">0</span>
+    </button>
+    <button class="mobile-nav-item" id="mobNavUser">
+      <span class="mob-icon">👤</span>
+      <span class="mob-label">You</span>
+    </button>
+  </nav>
+
+  <!-- ================= AUTHENTICATION MODAL (LOGIN & SIGN UP) ================= -->
+  <div class="modal-backdrop" id="authModalBackdrop">
+    <div class="modal-card auth-modal-card" role="dialog" aria-modal="true" aria-labelledby="authModalHeading">
+      
+      <!-- Close Button -->
+      <button class="modal-close-btn" id="authModalClose" aria-label="Close modal">&times;</button>
+      
+      <!-- Modal Header -->
+      <div class="auth-header">
+        <div class="auth-brand-logo">
+          <span class="temu-wordmark mini">TEMU</span>
+        </div>
+        <h3 id="authModalHeading" class="auth-title">Sign in or register</h3>
+        <p class="auth-desc">Get access to exclusive coupons, flash deals, and fast checkout.</p>
+      </div>
+
+      <!-- Auth Tabs Switcher -->
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="tabSignInBtn">Sign In</button>
+        <button class="auth-tab-btn" id="tabRegisterBtn">Register</button>
+      </div>
+
+      <!-- Quick Demo Filler Button for convenience -->
+      <div class="demo-fill-box">
+        <button type="button" class="btn-demo-fill" id="fillDemoCredentials">
+          ⚡ Auto-fill Demo Account
+        </button>
+      </div>
+
+      <!-- SIGN IN FORM -->
+      <form class="auth-form active" id="signInForm" novalidate>
+        <div class="form-group">
+          <label for="loginEmail" class="form-label">Email or Phone Number</label>
+          <div class="input-container">
+            <input 
+              type="email" 
+              id="loginEmail" 
+              class="form-control" 
+              placeholder="name@example.com"
+              required
+            >
+          </div>
+          <span class="error-msg" id="loginEmailError"></span>
+        </div>
+
+        <div class="form-group">
+          <div class="label-with-link">
+            <label for="loginPassword" class="form-label">Password</label>
+            <a href="#" class="forgot-pass-link" id="forgotPassLink">Forgot password?</a>
+          </div>
+          <div class="input-container">
+            <input 
+              type="password" 
+              id="loginPassword" 
+              class="form-control" 
+              placeholder="Enter your password"
+              required
+            >
+            <button type="button" class="toggle-password-btn" data-target="loginPassword" aria-label="Toggle password visibility">👁️</button>
+          </div>
+          <span class="error-msg" id="loginPassError"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-auth-submit" id="signInSubmitBtn">
+          Sign In
+        </button>
+      </form>
+
+      <!-- REGISTER FORM -->
+      <form class="auth-form" id="registerForm" novalidate style="display: none;">
+        <div class="form-group">
+          <label for="regName" class="form-label">Full Name</label>
+          <div class="input-container">
+            <input 
+              type="text" 
+              id="regName" 
+              class="form-control" 
+              placeholder="e.g. Alex Johnson"
+              required
+            >
+          </div>
+          <span class="error-msg" id="regNameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="regEmail" class="form-label">Email Address</label>
+          <div class="input-container">
+            <input 
+              type="email" 
+              id="regEmail" 
+              class="form-control" 
+              placeholder="name@example.com"
+              required
+            >
+          </div>
+          <span class="error-msg" id="regEmailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="regPassword" class="form-label">Create Password (at least 6 characters)</label>
+          <div class="input-container">
+            <input 
+              type="password" 
+              id="regPassword" 
+              class="form-control" 
+              placeholder="Min. 6 chars with letters &amp; numbers"
+              required
+            >
+            <button type="button" class="toggle-password-btn" data-target="regPassword" aria-label="Toggle password visibility">👁️</button>
+          </div>
+          <div class="password-strength-bar" id="passStrengthBar">
+            <div class="strength-indicator"></div>
+          </div>
+          <span class="error-msg" id="regPassError"></span>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="custom-checkbox-label">
+            <input type="checkbox" id="termsCheck" required checked>
+            <span class="checkbox-custom"></span>
+            <span class="checkbox-text">I agree to Temu's <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</span>
+          </label>
+          <span class="error-msg" id="termsError"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-auth-submit" id="registerSubmitBtn">
+          Create Account &amp; Claim $100
+        </button>
+      </form>
+
+      <!-- Social Logins Divider -->
+      <div class="auth-divider">
+        <span>or continue with</span>
+      </div>
+
+      <div class="social-login-grid">
+        <button type="button" class="social-btn social-google" id="socialGoogleBtn">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+          Google
+        </button>
+        <button type="button" class="social-btn social-apple" id="socialAppleBtn">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 0.92-2.87-.93.04-2.02.63-2.66 1.38-.56.65-.98 1.7-.86 2.74 1.05.08 2.06-.52 2.6-1.25z"/></svg>
+          Apple
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= SLIDE-OUT CART DRAWER ================= -->
+  <div class="cart-backdrop" id="cartBackdrop">
+    <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartHeading">
+      
+      <!-- Cart Drawer Header -->
+      <div class="cart-drawer-header">
+        <div class="cart-header-title">
+          <h3 id="cartHeading">Shopping Cart</h3>
+          <span class="cart-header-count">(<span id="cartDrawerTotalCount">0</span> items)</span>
+        </div>
+        <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close cart">&times;</button>
+      </div>
+
+      <!-- Free Shipping Progress Tracker -->
+      <div class="free-shipping-tracker">
+        <div class="tracker-message" id="shippingTrackerMsg">
+          Add <strong>$15.00</strong> more for <strong>FREE EXPRESS SHIPPING!</strong> 🚚
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="shippingProgressFill" style="width: 45%;"></div>
+        </div>
+      </div>
+
+      <!-- Cart Items Body -->
+      <div class="cart-drawer-body" id="cartItemsList">
+        <!-- Filled dynamically or empty state -->
+        <div class="cart-empty-state" id="cartEmptyState">
+          <div class="empty-icon">🛒</div>
+          <h4>Your cart is empty</h4>
+          <p>Explore lightning deals and add items to your cart!</p>
+          <button class="btn btn-primary start-shopping-btn" id="startShoppingBtn">Start Shopping</button>
+        </div>
+      </div>
+
+      <!-- Cart Drawer Footer -->
+      <div class="cart-drawer-footer" id="cartDrawerFooter" style="display: none;">
+        
+        <!-- Coupon Code Input Box -->
+        <div class="coupon-input-group">
+          <input type="text" id="couponInput" class="coupon-input" placeholder="Promo code (e.g. TEMU90)" uppercase>
+          <button type="button" class="btn-apply-coupon" id="applyCouponBtn">Apply</button>
+        </div>
+        <div class="coupon-status-msg" id="couponStatusMsg"></div>
+
+        <!-- Price Breakdown -->
+        <div class="price-summary-box">
+          <div class="summary-line">
+            <span>Item Subtotal</span>
+            <span class="sum-value" id="cartSubtotal">$0.00</span>
+          </div>
+          <div class="summary-line discount-line" id="cartDiscountLine" style="display: none;">
+            <span>Coupon Discount</span>
+            <span class="sum-value text-orange" id="cartDiscount">-$0.00</span>
+          </div>
+          <div class="summary-line">
+            <span>Estimated Shipping</span>
+            <span class="sum-value text-green" id="cartShipping">FREE</span>
+          </div>
+          <div class="summary-line total-line">
+            <strong>Total (USD)</strong>
+            <strong class="total-price" id="cartTotal">$0.00</strong>
+          </div>
+        </div>
+
+        <!-- Checkout Button -->
+        <button class="btn btn-primary btn-block btn-large checkout-btn" id="checkoutBtn">
+          <span>Checkout &amp; Save</span>
+          <span class="arrow">&rarr;</span>
+        </button>
+
+        <p class="secure-badge-note">
+          🔒 Secure 256-bit encryption • 90-day buyer protection
+        </p>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- ================= PRODUCT QUICK VIEW MODAL ================= -->
+  <div class="modal-backdrop" id="quickViewBackdrop">
+    <div class="modal-card quick-view-card" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" id="quickViewClose" aria-label="Close">&times;</button>
+      
+      <div class="quick-view-grid">
+        <!-- Product Gallery -->
+        <div class="qv-gallery">
+          <div class="qv-main-image-wrap">
+            <img src="" alt="Product" id="qvMainImage" class="qv-main-image">
+            <span class="qv-discount-badge" id="qvBadge">-85%</span>
+          </div>
+          <div class="qv-thumbnails" id="qvThumbnails">
+            <!-- Dynamic thumbnails -->
+          </div>
+        </div>
+
+        <!-- Product Information -->
+        <div class="qv-info">
+          <div class="qv-sold-tag" id="qvSoldTag">🔥 14.5k+ sold on Temu</div>
+          <h2 class="qv-title" id="qvTitle">Product Title</h2>
+          
+          <div class="qv-rating-strip">
+            <div class="stars" id="qvStars">★★★★★</div>
+            <span class="rating-num" id="qvRating">4.9</span>
+            <span class="divider">•</span>
+            <span class="reviews-count" id="qvReviews">2,840 reviews</span>
+          </div>
+
+          <div class="qv-price-box">
+            <span class="current-price" id="qvPrice">$0.00</span>
+            <span class="original-price" id="qvOriginalPrice">$0.00</span>
+            <span class="save-tag" id="qvSaveTag">Save 85%</span>
+          </div>
+
+          <p class="qv-description" id="qvDescription">Product description...</p>
+
+          <!-- Color / Option Selector -->
+          <div class="qv-option-group">
+            <label class="option-label">Color / Style: <strong id="selectedColorName">Classic Black</strong></label>
+            <div class="color-options" id="qvColorOptions">
+              <button class="color-btn active" data-color="Classic Black" style="background: #222;"></button>
+              <button class="color-btn" data-color="Pure White" style="background: #f5f5f5; border: 1px solid #ccc;"></button>
+              <button class="color-btn" data-color="Navy Blue" style="background: #1a365d;"></button>
+              <button class="color-btn" data-color="Temu Orange" style="background: #fb5c02;"></button>
+            </div>
+          </div>
+
+          <!-- Quantity Selector -->
+          <div class="qv-quantity-row">
+            <label class="option-label">Quantity:</label>
+            <div class="qty-stepper">
+              <button type="button" class="qty-btn" id="qvQtyMinus">&minus;</button>
+              <input type="number" id="qvQtyInput" value="1" min="1" max="99" readonly>
+              <button type="button" class="qty-btn" id="qvQtyPlus">&plus;</button>
+            </div>
+            <span class="stock-note text-green">✔ In Stock (Ready to Ship)</span>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="qv-actions-row">
+            <button class="btn btn-primary btn-large btn-add-qv-cart" id="qvAddToCartBtn">
+              Add to Cart
+            </button>
+            <button class="btn btn-wishlist-icon" id="qvWishlistBtn" title="Add to Wishlist">
+              <svg class="icon heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Guarantees -->
+          <div class="qv-guarantees">
+            <span>🛡️ Temu Purchase Protection Guarantee</span>
+            <span>⚡ Dispatches in 24 hours</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SPIN & WIN LUCKY WHEEL MODAL ================= -->
+  <div class="modal-backdrop" id="luckyWheelBackdrop">
+    <div class="modal-card wheel-modal-card" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" id="wheelModalClose" aria-label="Close">&times;</button>
+      
+      <div class="wheel-header">
+        <span class="wheel-badge">🎉 TEMU LUCKY ROULETTE</span>
+        <h3 class="wheel-title">Spin to Win Up to $100 OFF!</h3>
+        <p class="wheel-sub">One free spin per day for all registered shoppers.</p>
+      </div>
+
+      <div class="wheel-stage">
+        <div class="wheel-pointer">▼</div>
+        <div class="wheel-canvas-wrapper" id="wheelCanvasWrapper">
+          <div class="wheel-disk" id="wheelDisk">
+            <div class="wheel-slice slice-1" style="--rot: 0deg; --bg: #fb5c02;"><span>$10 OFF</span></div>
+            <div class="wheel-slice slice-2" style="--rot: 60deg; --bg: #ffaa00;"><span>FREE GIFT</span></div>
+            <div class="wheel-slice slice-3" style="--rot: 120deg; --bg: #e02b2b;"><span>$50 OFF</span></div>
+            <div class="wheel-slice slice-4" style="--rot: 180deg; --bg: #2980b9;"><span>90% OFF</span></div>
+            <div class="wheel-slice slice-5" style="--rot: 240deg; --bg: #008a00;"><span>$100 BUNDLE</span></div>
+            <div class="wheel-slice slice-6" style="--rot: 300deg; --bg: #8e44ad;"><span>FREE SHIP</span></div>
+          </div>
+          <button class="wheel-center-btn" id="spinCenterBtn">SPIN</button>
+        </div>
+      </div>
+
+      <div class="wheel-result-box" id="wheelResultBox" style="display: none;">
+        <div class="congrats-text">🎊 CONGRATULATIONS! 🎊</div>
+        <div class="won-prize" id="wonPrizeName">$100 COUPON BUNDLE</div>
+        <p class="won-desc">Use coupon code <strong class="coupon-code-pill" id="wonPrizeCode">TEMU90</strong> at checkout to save!</p>
+        <button class="btn btn-primary btn-block" id="claimPrizeBtn">Claim &amp; Apply to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= CHECKOUT ORDER SUCCESS MODAL ================= -->
+  <div class="modal-backdrop" id="orderSuccessBackdrop">
+    <div class="modal-card success-modal-card" role="dialog" aria-modal="true">
+      <div class="success-icon-animation">
+        <div class="checkmark-circle">
+          <svg class="checkmark-svg" viewBox="0 0 52 52">
+            <circle class="checkmark-circle-line" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="success-title">Order Placed Successfully!</h3>
+      <p class="success-desc">Thank you for shopping with Temu. We are preparing your order right now.</p>
+      
+      <div class="order-receipt-box">
+        <div class="receipt-row">
+          <span>Order Number:</span>
+          <strong id="successOrderId">TEMU-83921938</strong>
+        </div>
+        <div class="receipt-row">
+          <span>Total Paid:</span>
+          <strong class="text-orange" id="successOrderTotal">$0.00</strong>
+        </div>
+        <div class="receipt-row">
+          <span>Delivery Estimate:</span>
+          <span>3-5 Business Days (Express)</span>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-block" id="continueShoppingAfterOrderBtn">
+        Keep Shopping Amazing Deals
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= APP DOWNLOAD MODAL ================= -->
+  <div class="modal-backdrop" id="appModalBackdrop">
+    <div class="modal-card app-download-card" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" id="appModalClose" aria-label="Close">&times;</button>
+      <div class="app-modal-content">
+        <div class="temu-logo-wrapper" style="justify-content: center; margin-bottom: 12px;">
+          <span class="temu-wordmark">TEMU</span>
+        </div>
+        <h3>Download Temu App for Extra 30% OFF</h3>
+        <p>Scan the QR code or send an SMS link to your mobile phone to enjoy app-exclusive bargains.</p>
+        <div class="qr-big-box">
+          <svg viewBox="0 0 100 100" width="160" height="160">
+            <rect width="100" height="100" fill="#ffffff" rx="6"/>
+            <path d="M10 10h24v24h-24z M14 14h16v16h-16z M18 18h8v8h-8z M66 10h24v24h-24z M70 14h16v16h-16z M74 18h8v8h-8z M10 66h24v24h-24z M14 70h16v16h-16z M18 74h8v8h-8z M42 10h16v8h-16z M42 26h8v8h-8z M58 18h8v8h-8z M42 42h8v8h-8z M58 34h8v16h-8z M74 42h16v8h-16z M42 58h16v8h-16z M66 58h8v8h-8z M82 58h8v16h-8z M42 74h8v16h-8z M58 82h16v8h-16z M74 74h8v8h-8z" fill="#fb5c02"/>
+          </svg>
+        </div>
+        <button class="btn btn-primary btn-block" id="closeAppModalBtn">Continue on Web</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FLOATING TOAST NOTIFICATION CONTAINER ================= -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- ================= BACK TO TOP FLOATING BUTTON ================= -->
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="Scroll to top" title="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- JavaScript Application Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
